@@ -22,11 +22,17 @@
       Edit
       <code>components/HelloWorld.vue</code> to test hot module replacement.
     </p>
+    <h2>{{ name }}</h2>
   </div>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
-const let = 1;
+
+//pinia 用法
+import { useUserStore } from '@/store';
+const userStore = useUserStore();
+const name = userStore.name;
+
 defineProps<{ msg: string }>();
 
 const count = ref(0);
